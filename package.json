@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run copyJs && npm run copyHtml",
-    "copyHtml": "copyfiles ./index.html public",
+    "build": "npm run copyJs && npm run copyHtml && npm run copyAssets",
+    "copyAssets": "copyfiles -u 1 ./public/assets/* ./public/assets/Ui/* dist",
+    "copyHtml": "copyfiles ./index.html dist",
     "copyJs": "npm run copyPhaser",
-    "copyPhaser": "copyfiles -u 3 ./node_modules/phaser/dist/*.min.js public/js",
-    "start": "./node_modules/http-server/bin/http-server",
+    "copyPhaser": "copyfiles -u 3 ./node_modules/phaser/dist/*.min.js dist/js",
+    "start": "./node_modules/http-server/bin/http-server ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Reggie Bigornia",
