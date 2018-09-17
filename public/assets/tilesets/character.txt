@@ -1,0 +1,5 @@
+width: 768 px
+height: 384 px
+
+frame width: 192 px
+frame height: 192px
