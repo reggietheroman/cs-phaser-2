@@ -1,0 +1,5 @@
+width: 1792 px
+height: 896 px
+
+frame width: 128 px
+frame height: 128 px
