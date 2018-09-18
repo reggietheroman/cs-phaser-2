@@ -19,32 +19,40 @@ var app = (function() {
   }
 
   function _create() {
-    this.add.image(400, 300, 'sky');
-    var particles = this.add.particles('red');
-    var emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 1, end: 0 },
-      blendMode: 'ADD'
-    });
-    var logo = this.physics.add.image(400, 100, 'logo');
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
-    emitter.startFollow(logo);
-      
-    this.button = this.add.sprite(700, 500, 'aButton').setInteractive();
+    var walkingFrames = this.anims.generateFrameNumbers(
+      'character',
+      {
+        //start: 0,
+        //end: 3,
+        //first: 0
+        frames: [0,2,3]
+      }
+    );
 
-    this.button.on('pointerdown', function(pointer, pointerdown) {
-      console.log('A clicked');
-    });
+    var walkingConfig = {
+      key: 'walk',
+      frames: walkingFrames,
+      frameRate: 5,
+      repeat: -1
+    };
+    
+    this.anims.create(walkingConfig);
+
+    var yeemo = this.add.sprite(200, 200, 'character');
+
+    yeemo.anims.play('walk');
   }
 
   function _preload() {
-    this.load.image('sky', 'assets/space3.png');
-    this.load.image('logo', 'assets/phaser3-logo.png');
-    this.load.image('red', 'assets/red.png');
-
-    this.load.image('aButton', 'assets/Ui/A.png');
+    this.load.spritesheet(
+      'character',
+      '/assets/tilesets/character.png',
+      {
+        frameWidth: 192,
+        frameHeight: 192,
+        endFrame: 8
+      }
+    );
   } 
 
   function _update() {}
