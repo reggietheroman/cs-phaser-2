@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run copyJs && npm run copyHtml && npm run copyAssets",
     "copyApp": "copyfiles -u 1 ./app/app.js dist/js",
-    "copyAssets": "copyfiles -u 1 ./public/assets/* ./public/assets/Ui/* dist",
+    "copyAssets": "copyfiles -u 1 ./public/assets/* ./public/assets/Ui/* ./public/assets/tilesets/*.png dist",
     "copyHtml": "copyfiles -u 1 ./app/index.html dist",
     "copyJs": "npm run copyPhaser && npm run copyApp",
     "copyPhaser": "copyfiles -u 3 ./node_modules/phaser/dist/*.min.js dist/js",
