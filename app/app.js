@@ -22,10 +22,10 @@ var app = (function() {
     var walkingFrames = this.anims.generateFrameNumbers(
       'character',
       {
-        //start: 0,
+        //start: 2,
         //end: 3,
-        //first: 0
-        frames: [0,2,3]
+        //first: 2 
+        frames: [2,3]
       }
     );
 
@@ -54,8 +54,6 @@ var app = (function() {
       }
     );
   } 
-
-  function _update() {}
 
   return {
     run: function(){
