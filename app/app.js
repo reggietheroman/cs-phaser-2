@@ -40,7 +40,21 @@ var app = (function() {
 
     var yeemo = this.add.sprite(200, 200, 'character');
 
-    yeemo.anims.play('walk');
+    //yeemo.anims.play('walk');
+
+    this.left = this.add.image(100, 500, 'leftButton');
+    this.right = this.add.image(700, 500, 'rightButton');
+
+    this.left.setInteractive();
+    this.right.setInteractive();
+
+    this.left.on('pointerdown', function(pointer, pointerdown) {
+      yeemo.anims.play('walk');
+    });
+
+    this.left.on('pointerup', function(pointer, pointerup) {
+      yeemo.anims.stop();
+    });
   }
 
   function _preload() {
@@ -53,9 +67,14 @@ var app = (function() {
         endFrame: 8
       }
     );
+
+    this.load.image('leftButton', 'assets/Ui/left-shaded.png');
+    this.load.image('rightButton', 'assets/Ui/right-shaded.png');
   } 
 
-  function _update() {}
+  function _update() {
+
+  }
 
   return {
     run: function(){
