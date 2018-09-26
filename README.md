@@ -1,4 +1,4 @@
-#cs-phaser-2 (Mouse clicks)
+# cs-phaser-2
 
 Simple example showing how to register click actions on images/sprites.
 
